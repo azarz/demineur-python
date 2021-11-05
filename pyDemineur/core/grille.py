@@ -118,14 +118,16 @@ class Grille(object):
         bool
             True si la case découverte est une mine, False sinon
         """
+        if case.etat == EtatCase.MARQUEE:
+            return False
         case.decouvrir()
         if isinstance(case, CaseMinee):
-            return False
+            return True
         if isinstance(case, CaseVide):
             for voisin in self._voisinage(case.ligne, case.colonne):
                 if voisin.etat == EtatCase.MASQUEE:
                     self.decouvrir_case(voisin)
-        return True
+        return False
 
     def _voisinage(self, ligne, colonne):
         """Retourne le voisinage (connectivité à 8) d'une cellule dans la grille

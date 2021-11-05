@@ -63,7 +63,7 @@ class UICase(QPushButton):
                 self.gagne_signal.emit(1)
 
         if event.button() == Qt.LeftButton:
-            perdu = not self._partie.decouvrir_case(self.y, self.x)
+            perdu = self._partie.decouvrir_case(self.y, self.x)
             self.updateDisplay()
             if self._partie.test_victoire():
                 self.gagne_signal.emit(1)

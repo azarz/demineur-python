@@ -74,7 +74,7 @@ class Partie(object):
                 ligne = int(input("Ligne (entre 0 et {}) ? ".format(self._taille_grille[0] - 1)))
                 colonne = int(input("Colonne (entre 0 et {}) ? ".format(self._taille_grille[0] - 1)))
                 if decouvrir:
-                    perdu = not self.decouvrir_case(ligne, colonne)
+                    perdu = self.decouvrir_case(ligne, colonne)
                 else:
                     # Mine marquée vaut 1 si on a marqué une mine et
                     # 2 si on a démarqué une mine : on change le compteur
